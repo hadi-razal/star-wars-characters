@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 
 import { CiSearch } from "react-icons/ci";
 
-
 const Header = () => {
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -20,10 +19,10 @@ const Header = () => {
 
     return (
         <motion.header
-            initial={{ y: '-100vh' }} // Start off-screen above viewport
+            initial={{ y: '-100%' }} // Start off-screen above viewport
             animate={{ y: 0 }} // Slide down to viewport
             transition={{ duration: 0.5 }} // Animate over 0.5 seconds
-            className="flex items-center justify-between border-b-[0.1px] border-gray-800 py-4 px-8  text-white"
+            className="flex fixed top-0 z-50 items-center justify-between w-full bg-gray-900 border-b-[0.1px] border-gray-800 py-4 px-8 text-white h-[100px]"
         >
             {/* Star Wars Logo */}
             <div className="flex items-center justify-center">
@@ -33,15 +32,14 @@ const Header = () => {
                     width={100}
                     height={100}
                 />
-                {/* <h1 style={{ fontFamily: 'Starjedi' }} className='font-bold text-[30px] md:text-[40px]'>Star Wars</h1> */}
             </div>
 
             {/* Search Bar */}
-            <div className="w-1/2 flex items-center justify-center">
+            <div className="flex items-center justify-center w-1/2">
                 <input
                     type="text"
                     placeholder="Search Star Wars..."
-                    className="w-full p-2 rounded-l-sm bg-gray-800 text-white focus:outline-none "
+                    className="w-full p-2 rounded-l-sm bg-gray-800 text-white focus:outline-none"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     onKeyDown={handleSearch}

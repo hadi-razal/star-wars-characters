@@ -5,6 +5,7 @@ import axios from 'axios';
 import CharacterCard from '@/components/CharacterCard';
 import { motion } from 'framer-motion';
 import { CharacterType } from '@/type';
+import { CiStar } from 'react-icons/ci';
 
 /**
  * Home component displaying a list of characters from the Star Wars API.
@@ -53,13 +54,15 @@ const Home: React.FC = (): JSX.Element => {
   };
 
   return (
-    <div className='flex flex-col gap-3 items-center justify-center mt-[120px] mb-10'>
+    <div className=' flex flex-col gap-3 items-center justify-center mt-[120px] mb-10'>
       {isLoading && characters.length === 0 ? (
         <div className='h-[50vh] flex items-center justify-center'>
           <p>Loading...</p>
         </div>
       ) : (
+
         <>
+         
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -73,13 +76,17 @@ const Home: React.FC = (): JSX.Element => {
               <CharacterCard key={index} character={character} />
             ))}
           </div>
-          <button
-            onClick={loadMoreCharacters}
-            disabled={isLoadingMore} // Disable button while loading more characters
-            className={`mt-3 px-4 py-2 rounded-md bg-blue-500 text-white ${isLoadingMore ? 'opacity-50 cursor-not-allowed' : ''}`}
-          >
-            {isLoadingMore ? 'Loading...' : 'Load More'}
-          </button>
+
+          {characters.length > 5 && (
+            <button
+              onClick={loadMoreCharacters}
+              disabled={isLoadingMore}
+              className={`mt-3 px-4 py-2 rounded-md bg-gray-800 text-white ${isLoadingMore ? 'opacity-50 cursor-not-allowed' : ''}`}
+            >
+              {isLoadingMore ? 'Loading...' : 'Load More'}
+            </button>
+          )}
+
         </>
       )}
     </div>

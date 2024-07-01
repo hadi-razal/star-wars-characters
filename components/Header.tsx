@@ -8,7 +8,7 @@ import { CiSearch } from "react-icons/ci";
 import { useRouter } from 'next/navigation';
 
 const Header = () => {
-    
+
     const [searchTerm, setSearchTerm] = useState('');
 
     const router = useRouter()
@@ -29,7 +29,7 @@ const Header = () => {
             className="flex fixed top-0 z-50 items-center justify-between w-full bg-gray-900 border-b-[0.1px] border-gray-800 py-4 px-8 text-white h-[100px]"
         >
             {/* Star Wars Logo */}
-            <div onClick={() => router.push('/')} className="flex items-center justify-center">
+            <div onClick={() => router.push('/')} className="flex items-center justify-center cursor-pointer">
                 <Image
                     alt="Star Wars Logo"
                     src="/logo.png"
@@ -43,12 +43,12 @@ const Header = () => {
                 <input
                     type="text"
                     placeholder="Search Star Wars..."
-                    className="w-full p-2 rounded-l-sm bg-gray-800 text-white focus:outline-none"
+                    className="w-full p-2 rounded-l-md bg-gray-800 text-white focus:outline-none"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     onKeyDown={handleSearch}
                 />
-                <div className='py-2 px-2 bg-gray-800 border-l-[0.1px] border-gray-700 rounded-r-sm cursor-pointer'>
+                <div className='py-2 px-2 bg-gray-800 border-l-[0.1px] border-gray-700 rounded-r-md cursor-pointer'>
                     <CiSearch size={24} />
                 </div>
             </div>

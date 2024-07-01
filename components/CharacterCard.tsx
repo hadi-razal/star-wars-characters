@@ -1,34 +1,19 @@
-'use client'
-
-import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Stack, Text } from '@chakra-ui/react'
-import { motion } from 'framer-motion'
-import { useRouter } from 'next/navigation'
+import { CharacterType } from '@/type';
+import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Stack, Text } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 
 interface CharacterCardProps {
-    character: {
-        id: number
-        name: string
-        height: string
-        mass: string
-        hairColor: string
-        skinColor: string
-        birthYear: string
-        gender: string
-        homeworld: string
-        films: string[]
-        species: string[]
-        vehicles: string[]
-        starships: string[]
-        created: string
-        edited: string
-        url: string
-    }
-    charId: number
+    character: CharacterType;
+    charId: number;
 }
 
-const CharacterCard: React.FC<CharacterCardProps> = ({ character, charId }) => {
-    const { name, height, mass, hairColor, skinColor, birthYear, gender, homeworld, films } = character
-    const router = useRouter()
+const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
+    const { name, height, mass, gender, birth_year, homeworld, films, url } = character;
+    const router = useRouter();
+
+    // Extracting the unique number from the URL
+    const characterId = url.split('/').filter(Boolean).pop(); // Extract the last segment after splitting by '/'
 
     return (
         <motion.div
@@ -47,7 +32,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character, charId }) => {
                             Height: {height} cm
                         </Text>
                         <Text fontWeight='light' fontSize='sm'>
-                            Birth Year: {birthYear}
+                            Birth Year: {birth_year}
                         </Text>
                         <Text fontWeight='light' fontSize='sm'>
                             Gender: {gender}
@@ -55,8 +40,8 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character, charId }) => {
                     </Stack>
                 </CardBody>
                 <Divider />
-                <CardFooter >
-                    <ButtonGroup onClick={() => router.push(`/character/${charId}`)} mt='2' width='full' className='w-full'>
+                <CardFooter>
+                    <ButtonGroup onClick={() => router.push(`/character/${characterId}`)} mt='2' width='full'>
                         <Button variant='solid' colorScheme='blue' className='bg-gray-900 px-2 py-2 w-full'>
                             <Text fontSize='sm' fontWeight='light'>
                                 More Details
@@ -66,8 +51,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character, charId }) => {
                 </CardFooter>
             </Card>
         </motion.div>
-    )
-}
+    );
+};
 
-export default CharacterCard
-
+export default CharacterCard;

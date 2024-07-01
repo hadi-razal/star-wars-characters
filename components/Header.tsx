@@ -8,6 +8,7 @@ import { CiSearch } from "react-icons/ci";
 import { useRouter } from 'next/navigation';
 
 const Header = () => {
+    
     const [searchTerm, setSearchTerm] = useState('');
 
     const router = useRouter()

@@ -26,13 +26,14 @@ const Header = () => {
             className="flex items-center justify-between border-b-[0.1px] border-gray-800 py-4 px-8  text-white"
         >
             {/* Star Wars Logo */}
-            <div className="relative flex items-center justify-center">
-                {/* <Image
+            <div className="flex items-center justify-center">
+                <Image
                     alt="Star Wars Logo"
                     src="/logo.png"
-                    layout="fill"
-                /> */}
-                <h1 style={{ fontFamily: 'Poppins' }} className='font-bold text-[30px] md:text-[40px]'>Star Wars</h1>
+                    width={100}
+                    height={100}
+                />
+                {/* <h1 style={{ fontFamily: 'Starjedi' }} className='font-bold text-[30px] md:text-[40px]'>Star Wars</h1> */}
             </div>
 
             {/* Search Bar */}

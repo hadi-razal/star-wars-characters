@@ -33,9 +33,7 @@ body {
 
 @font-face {
   font-family: 'StartJedi';
-  src: url('/fonts/startJedi.woff2') format('woff2'),
-    url('/fonts/startJedi.woff') format('woff'),
-    url('/fonts/startJedi.ttf') format('truetype');
+  src: url('/fonts/startJedi.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

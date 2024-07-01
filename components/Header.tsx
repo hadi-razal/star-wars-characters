@@ -5,9 +5,12 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import { CiSearch } from "react-icons/ci";
+import { useRouter } from 'next/navigation';
 
 const Header = () => {
     const [searchTerm, setSearchTerm] = useState('');
+
+    const router = useRouter()
 
     const handleSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
@@ -25,7 +28,7 @@ const Header = () => {
             className="flex fixed top-0 z-50 items-center justify-between w-full bg-gray-900 border-b-[0.1px] border-gray-800 py-4 px-8 text-white h-[100px]"
         >
             {/* Star Wars Logo */}
-            <div className="flex items-center justify-center">
+            <div onClick={() => router.push('/')} className="flex items-center justify-center">
                 <Image
                     alt="Star Wars Logo"
                     src="/logo.png"

@@ -54,9 +54,9 @@ const Home: React.FC = (): JSX.Element => {
   };
 
   return (
-    <div className=' flex flex-col gap-3 items-center justify-center mt-[120px] mb-10 px-5 '>
+    <div className=' flex flex-col gap-3 min-h-screen items-center justify-center pt-[120px] pb-10 px-5 bg-gray-900 '>
       {isLoading && characters.length === 0 ? (
-        <div className='h-[50vh] flex items-center justify-center'>
+        <div className='h-[40vh] flex items-center justify-center'>
           <p>Loading...</p>
         </div>
       ) : (

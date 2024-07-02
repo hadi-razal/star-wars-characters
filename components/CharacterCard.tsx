@@ -46,9 +46,9 @@ const CharacterCard: FC<CharacterCardProps> = ({ character }: CharacterCardProps
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className='sm:w-[300px] w-full relative ease-in-out shadow-md bg-slate-800 p-4 rounded-lg cursor-pointer'
+            className='sm:w-[300px] w-full relative ease-in-out shadow-md bg-slate-800  p-4 rounded-lg cursor-pointer'
         >
-            <button onClick={toggleFavorite} className="  cursor-pointer bg-transparent border-none p-0 m-0">
+            <button onClick={toggleFavorite} className="cursor-pointer bg-transparent border-none p-0 m-0">
                 {isFavorite ? <FaStar color="yellow" size={24} /> : <CiStar color="gray" size={24} />}
             </button>
 

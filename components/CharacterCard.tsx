@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { CharacterType } from '@/type';
 import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Stack, Text } from '@chakra-ui/react';
@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { FC, useEffect, useState } from 'react';
 import { CiStar } from 'react-icons/ci';
+import { FaStar } from 'react-icons/fa';
 
 interface CharacterCardProps {
     character: CharacterType;
@@ -64,9 +65,17 @@ const CharacterCard: FC<CharacterCardProps> = ({ character }: CharacterCardProps
             transition={{ duration: 0.5 }}
             className='w-[300px] relative hover:scale-105 transition-transform duration-300 ease-in-out bg-slate-800 p-4 rounded-lg cursor-pointer'
         >
-            <div onClick={isFavorite ? removeFromFavorites : addToFavorite} className='absolute top-3 right-3 cursor-pointer'>
-                <CiStar color={isFavorite ? 'yellow' : 'gray'} size={24} />
-            </div>
+            <Button
+                // variant='ghost'
+               
+                className='absolute top-3 left-3 cursor-pointer'
+            >
+                {isFavorite ? (
+                    <FaStar onClick={removeFromFavorites} color="yellow" size={24} />
+                ) : (
+                    <CiStar onClick={addToFavorite} color="gray" size={24} />
+                )}
+            </Button>
 
             <Card maxW='sm' borderRadius='lg' overflow='hidden'>
                 <CardBody>

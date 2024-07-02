@@ -62,7 +62,7 @@ const Home: React.FC = (): JSX.Element => {
       ) : (
 
         <>
-         
+
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
